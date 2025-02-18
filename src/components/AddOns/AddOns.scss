@@ -7,7 +7,7 @@
 	row-gap: 16px;
 }
 
-.add-one-card {
+.add-on-card {
 	display: grid;
 	grid-template-columns: max-content 1fr max-content;
 	grid-template-rows: max-content max-content;
@@ -36,11 +36,14 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		@include transition(background-color);
+		align-self: center;
+		grid-area: check;
+		@include transition(background-color, border-color);
 	}
 
 	&--checked &__checkmark {
 		background-color: $purplish-blue;
+		border-color: $purplish-blue;
 	}
 
 	&__name {

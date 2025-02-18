@@ -46,12 +46,12 @@
 		display: flex;
 		flex-direction: column;
 
-		span:first-of-type {
+		span {
 			font-size: 16px;
 			color: $marine-blue;
 		}
 
-		span:last-of-type {
+		button {
 			font-size: 14px;
 			text-decoration: underline;
 			cursor: pointer;
@@ -114,10 +114,20 @@
 		text-align: center;
 	}
 
-	&__description {
+	&__description,
+	a {
 		font-size: 16px;
 		color: $cool-gray;
 		line-height: 25px;
 		text-align: center;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+			color: $purplish-blue;
+		}
 	}
 }

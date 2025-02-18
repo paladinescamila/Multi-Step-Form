@@ -10,17 +10,25 @@ export default function Sidebar() {
 	const {step} = useStepsStore();
 
 	return (
-		<ul className='sidebar'>
-			<img src={DesktopBG} alt='Sidebar background' className='sidebar__background' />
-			{STEPS_LIST.map(({id, name}, index) => (
-				<li
-					key={`step-${id}`}
-					className={`sidebar-step ${step === id ? 'sidebar-step--active' : ''}`}>
-					<p className='sidebar-step__number'>{index + 1}</p>
-					<p className='sidebar-step__step'>Step {index + 1}</p>
-					<p className='sidebar-step__name'>{name}</p>
-				</li>
-			))}
-		</ul>
+		<nav className='sidebar' aria-label='Steps navigation'>
+			<img
+				src={DesktopBG}
+				alt='Sidebar decorative background'
+				className='sidebar__background'
+				aria-hidden='true'
+			/>
+			<ol className='sidebar__steps'>
+				{STEPS_LIST.map(({id, name}, index) => (
+					<li
+						key={`step-${id}`}
+						className={`sidebar-step ${step === id ? 'sidebar-step--active' : ''}`}
+						aria-current={step === id ? 'step' : undefined}>
+						<p className='sidebar-step__number'>{index + 1}</p>
+						<p className='sidebar-step__step'>Step {index + 1}</p>
+						<p className='sidebar-step__name'>{name}</p>
+					</li>
+				))}
+			</ol>
+		</nav>
 	);
 }

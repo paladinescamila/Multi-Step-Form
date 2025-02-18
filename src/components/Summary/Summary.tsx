@@ -8,33 +8,37 @@ import Confirmed from '../../assets/confirmed.svg';
 
 export default function Summary() {
 	const {plan, frecuency, addOns, confirmed, goBackToPlan} = useSummaryStore();
-
 	const summary = useMemo(() => getSummary(plan, frecuency, addOns), [plan, frecuency, addOns]);
 
 	if (confirmed) {
 		return (
-			<div className='confirmed'>
-				<img src={Confirmed} alt='Confirmed' className='confirmed__icon' />
-				<h1 className='confirmed__title'>Thank you!</h1>
+			<section className='confirmed' aria-labelledby='confirmed-title'>
+				<img src={Confirmed} alt='Subscription confirmed' className='confirmed__icon' />
+				<h1 id='confirmed-title' className='confirmed__title'>
+					Thank you!
+				</h1>
 				<p className='confirmed__description'>
 					Thanks for confirming your subscription! We hope you have fun using our
 					platform. If you ever need support, please feel free to email us at
-					support@loremgaming.com.
+					<a href='mailto:support@loremgaming.com'> support@loremgaming.com</a>.
 				</p>
-			</div>
+			</section>
 		);
 	}
 
 	return (
-		<div className='summary'>
+		<section className='summary' aria-labelledby='summary-title'>
 			<div className='summary__details'>
 				<div className='summary-plan'>
 					<p className='summary-plan__name'>
 						<span>{summary.plan}</span>
-						<span onClick={goBackToPlan}>Change</span>
+						<button type='button' onClick={goBackToPlan}>
+							Change
+						</button>
 					</p>
 					<p className='summary-plan__price'>{summary.price}</p>
 				</div>
+
 				{summary.addOns.length > 0 && (
 					<ul className='summary-add-ons'>
 						{summary.addOns.map(({name, price}) => (
@@ -47,9 +51,9 @@ export default function Summary() {
 				)}
 			</div>
 			<div className='summary__total'>
-				<p>{summary.total.name}</p>
-				<p>+{summary.total.price}</p>
+				<p className='summary__total-label'>{summary.total.name}</p>
+				<p className='summary__total-price'>+{summary.total.price}</p>
 			</div>
-		</div>
+		</section>
 	);
 }

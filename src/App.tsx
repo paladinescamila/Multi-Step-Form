@@ -18,15 +18,17 @@ function App() {
 			<Sidebar />
 			<section className='content'>
 				{!confirmed && (
-					<>
+					<header>
 						<h1 className='content__title'>{STEPS[step].title}</h1>
 						<p className='content__description'>{STEPS[step].description}</p>
-					</>
+					</header>
 				)}
-				{step == 'your-info' && <YourInfo />}
-				{step == 'select-plan' && <SelectPlan />}
-				{step == 'add-ons' && <AddOns />}
-				{step == 'summary' && <Summary />}
+				<form>
+					{step == 'your-info' && <YourInfo />}
+					{step == 'select-plan' && <SelectPlan />}
+					{step == 'add-ons' && <AddOns />}
+					{step == 'summary' && <Summary />}
+				</form>
 				{!confirmed && <Navigation />}
 			</section>
 		</main>

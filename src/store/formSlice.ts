@@ -89,7 +89,7 @@ export const formSlice = createSlice({
 			state.frecuency = action.payload;
 		},
 
-		updateAddOne: (state, action: PayloadAction<AddOn>) => {
+		updateAddOn: (state, action: PayloadAction<AddOn>) => {
 			state.addOns[action.payload] = !state.addOns[action.payload];
 		},
 	},

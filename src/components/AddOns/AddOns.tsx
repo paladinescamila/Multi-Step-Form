@@ -9,29 +9,31 @@ export default function AddOns() {
 	const {frecuency, addOns, updateAddOn} = useAddOnsStore();
 
 	return (
-		<form className='add-ons'>
+		<fieldset className='add-ons'>
 			{ADD_ONS_LIST.map(({id, name, description, price}) => (
 				<label
-					htmlFor={id}
 					key={id}
-					className={`add-one-card ${addOns[id] ? 'add-one-card--checked' : ''}`}>
+					className={`add-on-card ${addOns[id] ? 'add-on-card--checked' : ''}`}>
 					<input
 						type='checkbox'
 						id={id}
 						checked={addOns[id]}
-						style={{display: 'none'}}
 						onChange={() => updateAddOn(id)}
+						className='hidden'
 					/>
-					<div className='add-one-card__checkmark'>
-						{addOns[id] && <img src={Checkmark} alt={`checkmar-${id}`} />}
+
+					<div className='add-on-card__checkmark' aria-hidden='true'>
+						{addOns[id] && <img src={Checkmark} alt={`Selected add-on: ${name}`} />}
 					</div>
-					<p className='add-one-card__name'>{name}</p>
-					<p className='add-one-card__description'>{description}</p>
-					<p className='add-one-card__price'>
-						+${price['monthly']}/{frecuency === 'monthly' ? 'mo' : 'yr'}
+
+					<p className='add-on-card__name'>{name}</p>
+					<p className='add-on-card__description'>{description}</p>
+
+					<p className='add-on-card__price'>
+						+${price[frecuency]}/{frecuency === 'monthly' ? 'mo' : 'yr'}
 					</p>
 				</label>
 			))}
-		</form>
+		</fieldset>
 	);
 }

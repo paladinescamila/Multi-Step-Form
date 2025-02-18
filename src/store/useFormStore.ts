@@ -72,7 +72,7 @@ export const useAddOnsStore = () => {
 	const addOns = useAppSelector((state) => state.form.addOns);
 
 	const dispatch = useAppDispatch();
-	const updateAddOn = (addOn: AddOn) => dispatch(formActions.updateAddOne(addOn));
+	const updateAddOn = (addOn: AddOn) => dispatch(formActions.updateAddOn(addOn));
 
 	return {frecuency, addOns, updateAddOn};
 };

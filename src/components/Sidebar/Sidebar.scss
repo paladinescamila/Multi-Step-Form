@@ -3,9 +3,6 @@
 
 .sidebar {
 	padding: 40px 32px;
-	display: flex;
-	flex-direction: column;
-	row-gap: 31px;
 	position: relative;
 
 	&__background {
@@ -14,6 +11,12 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	&__steps {
+		display: flex;
+		flex-direction: column;
+		row-gap: 31px;
 	}
 }
 
