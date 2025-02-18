@@ -1,18 +1,20 @@
 import {STEPS_LIST} from '../../constants/steps';
 import {useStepsStore} from '../../store/useFormStore';
+import {useResponsive} from '../../utils/useResponsive';
 import './Sidebar.scss';
 
 // Assets
 import DesktopBG from './assets/desktop-bg.svg';
-// import MobileBG from './assets/mobile-bg.svg'
+import MobileBG from './assets/mobile-bg.svg';
 
 export default function Sidebar() {
 	const {step} = useStepsStore();
+	const {isMobile} = useResponsive();
 
 	return (
 		<nav className='sidebar' aria-label='Steps navigation'>
 			<img
-				src={DesktopBG}
+				src={isMobile ? MobileBG : DesktopBG}
 				alt='Sidebar decorative background'
 				className='sidebar__background'
 				aria-hidden='true'

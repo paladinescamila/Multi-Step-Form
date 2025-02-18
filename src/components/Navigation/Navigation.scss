@@ -1,11 +1,20 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@import '../../styles/index.scss';
 
 .navigation {
 	display: flex;
 	align-items: center;
 	column-gap: 10px;
 	margin-top: auto;
+	background-color: $white;
+
+	@include mobile {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 16px;
+		box-shadow: 0 -3px 50px 1px rgb(0 0 0 / 0.1);
+	}
 }
 
 .go-back {
@@ -16,11 +25,15 @@
 	&:hover {
 		color: $marine-blue;
 	}
+
+	@include mobile {
+		font-size: 14px;
+	}
 }
 
 .next-step {
 	color: $white;
-	font-weight: 700;
+	font-weight: 500;
 	background-color: $marine-blue;
 	border-radius: 10px;
 	padding: 14px 24px 16px 25px;
@@ -29,5 +42,9 @@
 
 	&:hover {
 		background-color: $purplish-blue;
+	}
+
+	@include mobile {
+		font-size: 14px;
 	}
 }

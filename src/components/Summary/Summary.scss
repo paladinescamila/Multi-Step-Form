@@ -1,5 +1,4 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@import '../../styles/index.scss';
 
 .summary {
 	display: flex;
@@ -12,6 +11,10 @@
 		padding: 20px;
 		border-radius: 10px;
 		background-color: $magnolia;
+
+		@include mobile {
+			padding: 16px;
+		}
 	}
 
 	&__total {
@@ -19,6 +22,10 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 30px 20px 0;
+
+		@include mobile {
+			padding: 16px;
+		}
 
 		p:first-of-type {
 			font-size: 14px;
@@ -29,6 +36,10 @@
 			font-size: 20px;
 			font-weight: 700;
 			color: $purplish-blue;
+
+			@include mobile {
+				font-size: 16px;
+			}
 		}
 	}
 }
@@ -49,6 +60,10 @@
 		span {
 			font-size: 16px;
 			color: $marine-blue;
+
+			@include mobile {
+				font-size: 14px;
+			}
 		}
 
 		button {
@@ -69,6 +84,10 @@
 		font-size: 16px;
 		font-weight: 700;
 		color: $marine-blue;
+
+		@include mobile {
+			font-size: 14px;
+		}
 	}
 }
 
@@ -76,9 +95,14 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 20px;
-	padding-top: 25px;
+	padding-top: 20px;
 	border-top: 1px solid $light-gray;
 	margin-top: 20px;
+
+	@include mobile {
+		row-gap: 15px;
+		padding-top: 20px;
+	}
 }
 
 .summary-add-on {
@@ -101,9 +125,18 @@
 	width: 100%;
 	height: 100%;
 
+	@include mobile {
+		margin: 70px 0;
+	}
+
 	&__icon {
 		width: 80px;
 		height: 80px;
+
+		@include mobile {
+			width: 50px;
+			height: 50px;
+		}
 	}
 
 	&__title {
@@ -112,6 +145,11 @@
 		color: $marine-blue;
 		margin: 32px 0 14px;
 		text-align: center;
+
+		@include mobile {
+			font-size: 24px;
+			margin: 20px 0 10px;
+		}
 	}
 
 	&__description,

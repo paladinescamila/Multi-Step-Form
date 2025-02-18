@@ -1,5 +1,4 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@import '../../styles/index.scss';
 
 .your-info {
 	display: flex;
@@ -13,6 +12,10 @@
 	&__label {
 		font-size: 14px;
 		color: $marine-blue;
+
+		@include mobile {
+			font-size: 12px;
+		}
 	}
 
 	&__error {
@@ -20,13 +23,17 @@
 		font-weight: 500;
 		color: $strawberry-red;
 		margin-left: auto;
+
+		@include mobile {
+			font-size: 12px;
+		}
 	}
 
 	&__input {
 		font-size: 16px;
 		font-weight: 500;
 		color: $marine-blue;
-		padding: 15px 16px;
+		padding: 14px 15px;
 		border-radius: 10px;
 		border: 1px solid $light-gray;
 		width: 100%;
@@ -47,6 +54,10 @@
 			&:focus {
 				border-color: $strawberry-red;
 			}
+		}
+
+		@include mobile {
+			font-size: 15px;
 		}
 	}
 }

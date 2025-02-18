@@ -1,6 +1,6 @@
 import {STEPS} from './constants/steps';
 import {useStepsStore} from './store/useFormStore';
-import './styles/index.scss';
+import './styles/App.scss';
 
 // Components
 import Sidebar from './components/Sidebar/Sidebar';

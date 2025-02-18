@@ -1,5 +1,4 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@import '../../styles/index.scss';
 
 .select-plan {
 	display: flex;
@@ -10,6 +9,11 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 18px;
+
+		@media (max-width: $mobile-breakpoint) {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(3, 1fr);
+		}
 	}
 
 	&__frecuency {
@@ -23,6 +27,8 @@
 		background-color: $magnolia;
 		color: $cool-gray;
 		font-size: 14px;
+		font-weight: 500;
+		cursor: pointer;
 
 		.frecuency-monthly {
 			justify-self: right;
@@ -36,18 +42,15 @@
 
 		&--monthly .frecuency-monthly {
 			color: $marine-blue;
-			font-weight: 700;
 		}
 
 		&--yearly .frecuency-yearly {
 			color: $marine-blue;
-			font-weight: 700;
 		}
 
 		.switch {
 			position: relative;
 			background-color: $marine-blue;
-			cursor: pointer;
 			width: 40px;
 			height: 20px;
 			border-radius: 50px;
@@ -81,12 +84,22 @@
 .plan-card {
 	display: flex;
 	flex-direction: column;
+	row-gap: 7px;
 	border-radius: 10px;
 	padding: 20px 16px 17px;
 	border: 1px solid $light-gray;
 	min-height: 160px;
 	cursor: pointer;
 	@include transition(border-color, background-color);
+
+	@media (max-width: $mobile-breakpoint) {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		grid-template-rows: repeat(3, max-content);
+		grid-template-areas: 'icon name' 'icon price' 'icon free';
+		grid-gap: 7px 16px;
+		min-height: 0;
+	}
 
 	&:hover {
 		border-color: $purplish-blue;
@@ -101,24 +114,25 @@
 		width: 40px;
 		height: 40px;
 		margin-bottom: auto;
+		grid-area: icon;
 	}
 
 	&__name {
 		font-size: 16px;
 		font-weight: 500;
 		color: $marine-blue;
-		text-transform: capitalize;
+		grid-area: name;
 	}
 
 	&__price {
 		font-size: 14px;
 		color: $cool-gray;
-		margin-top: 6px;
+		grid-area: price;
 	}
 
 	&__free {
 		font-size: 12px;
 		color: $marine-blue;
-		margin-top: 11px;
+		grid-area: free;
 	}
 }
