@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 * {
 	font-family: 'Ubuntu', serif;
 	box-sizing: border-box;
@@ -18,4 +20,58 @@ button {
 
 button {
 	cursor: pointer;
+}
+
+.container {
+	width: 940px;
+	height: 600px;
+	background-color: $white;
+	padding: 16px 100px 16px 16px;
+	border-radius: 15px;
+	display: grid;
+	grid-template-columns: 274px 1fr;
+	grid-gap: 100px;
+}
+
+.content {
+	padding: 41px 0 15px;
+
+	&__title {
+		font-size: 32px;
+		font-weight: 700;
+		color: $marine-blue;
+	}
+
+	&__description {
+		font-size: 16px;
+		margin: 12px 0 41px;
+		color: $cool-gray;
+	}
+
+	&__navigation {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+.go-back {
+	color: $cool-gray;
+	font-weight: 500;
+
+	&:hover {
+		color: $marine-blue;
+	}
+}
+
+.next-step {
+	color: $white;
+	font-weight: 700;
+	background-color: $marine-blue;
+	border-radius: 10px;
+	padding: 14px 24px 16px 25px;
+
+	&:hover {
+		background-color: $purplish-blue;
+	}
 }

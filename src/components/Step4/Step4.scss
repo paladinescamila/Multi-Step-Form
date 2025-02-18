@@ -1,0 +1,115 @@
+@import '../../styles/variables.scss';
+
+.step-4 {
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+
+	&__summary {
+		display: flex;
+		flex-direction: column;
+		padding: 20px;
+		border-radius: 10px;
+		background-color: $magnolia;
+	}
+
+	&__total {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 30px 20px;
+
+		p:first-of-type {
+			font-size: 14px;
+			color: $cool-gray;
+		}
+
+		p:last-of-type {
+			font-size: 20px;
+			font-weight: 700;
+			color: $purplish-blue;
+		}
+	}
+}
+
+.summary-plan,
+.summary-add-on {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.summary-plan {
+	padding-bottom: 25px;
+	border-bottom: 1px solid $light-gray;
+	margin-bottom: 20px;
+
+	&__title {
+		font-weight: 500;
+		display: flex;
+		flex-direction: column;
+
+		span:first-of-type {
+			font-size: 16px;
+			color: $marine-blue;
+		}
+
+		span:last-of-type {
+			font-size: 14px;
+			text-decoration: underline;
+			cursor: pointer;
+			color: $cool-gray;
+		}
+	}
+
+	&__price {
+		font-size: 16px;
+		font-weight: 700;
+		color: $marine-blue;
+	}
+}
+
+.summary-add-ons {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+.summary-add-on {
+	font-size: 14px;
+
+	&__title {
+		color: $cool-gray;
+	}
+
+	&__price {
+		color: $marine-blue;
+	}
+}
+
+.confirmed {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__icon {
+		width: 80px;
+		height: 80px;
+	}
+
+	&__title {
+		font-size: 32px;
+		font-weight: 700;
+		color: $marine-blue;
+		margin: 32px 0 14px;
+		text-align: center;
+	}
+
+	&__description {
+		font-size: 16px;
+		color: $cool-gray;
+		line-height: 25px;
+		text-align: center;
+	}
+}
