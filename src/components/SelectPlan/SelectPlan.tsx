@@ -38,8 +38,6 @@ export default function SelectPlan() {
 					))}
 				</ul>
 			</fieldset>
-
-			{/* Selector de Frecuencia */}
 			<label className={`select-plan__frecuency select-plan__frecuency--${frecuency}`}>
 				<input
 					type='checkbox'

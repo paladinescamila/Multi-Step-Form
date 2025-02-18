@@ -16,7 +16,6 @@ export default function YourInfo() {
 
 	return (
 		<fieldset className='your-info'>
-			{/* Name Input */}
 			<div className='your-info__field'>
 				<div className='label-and-error'>
 					<label htmlFor='name' className='your-info__label'>
@@ -40,8 +39,6 @@ export default function YourInfo() {
 					autoComplete='name'
 				/>
 			</div>
-
-			{/* Email Input */}
 			<div className='your-info__field'>
 				<div className='label-and-error'>
 					<label htmlFor='email' className='your-info__label'>
@@ -65,8 +62,6 @@ export default function YourInfo() {
 					autoComplete='email'
 				/>
 			</div>
-
-			{/* Phone Input */}
 			<div className='your-info__field'>
 				<div className='label-and-error'>
 					<label htmlFor='phone' className='your-info__label'>
