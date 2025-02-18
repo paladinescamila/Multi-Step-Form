@@ -34,7 +34,10 @@ button {
 }
 
 .content {
+	display: flex;
+	flex-direction: column;
 	padding: 41px 0 15px;
+	height: 100%;
 
 	&__title {
 		font-size: 32px;
