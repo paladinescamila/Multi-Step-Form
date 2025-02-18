@@ -1,3 +1,3 @@
-type Step = 1 | 2 | 3 | 4;
+type Step = 'your-info' | 'select-plan' | 'add-ons' | 'summary';
 
-type StepData = {name: string; title: string; description: string};
+type StepData = {id: Step; name: string; title: string; description: string};

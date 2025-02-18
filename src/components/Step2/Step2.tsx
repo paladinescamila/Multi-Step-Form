@@ -1,19 +1,18 @@
-import {useState} from 'react';
-import {PLANS} from '../../constants/plans';
+import {PLANS_LIST} from '../../constants/plans';
+import {usePlanStore} from '../../store/useFormStore';
 import './Step2.scss';
 
 export default function Step2() {
-	const [plan, setPlan] = useState<Plan>('arcade');
-	const [frecuency, setFrecuency] = useState<Frecuency>('monthly');
+	const {plan, frecuency, updatePlan, updateFrecuency} = usePlanStore();
 
 	return (
 		<div className='step-2'>
 			<ul className='step-2__plans'>
-				{PLANS.map(({name, price, icon}) => (
+				{PLANS_LIST.map(({id, name, price, icon}) => (
 					<li
 						key={name}
-						className={`plan-card ${plan === name ? 'plan-card--active' : ''}`}
-						onClick={() => setPlan(name)}>
+						className={`plan-card ${plan === id ? 'plan-card--active' : ''}`}
+						onClick={() => updatePlan(id)}>
 						<img src={icon} alt={name} className='plan-card__icon' />
 						<p className='plan-card__name'>{name}</p>
 						<p className='plan-card__price'>
@@ -25,7 +24,7 @@ export default function Step2() {
 			</ul>
 			<button
 				className={`step-2__frecuency step-2__frecuency--${frecuency}`}
-				onClick={() => setFrecuency(frecuency === 'monthly' ? 'yearly' : 'monthly')}>
+				onClick={() => updateFrecuency(frecuency === 'monthly' ? 'yearly' : 'monthly')}>
 				<p className='frecuency-monthly'>Monthly</p>
 				<div className='switch' />
 				<p className='frecuency-yearly'>Yearly</p>

@@ -1,3 +1,3 @@
 type Plan = 'arcade' | 'advanced' | 'pro';
 
-type PlanData = {name: Plan; price: PriceByFrecuency; icon: string};
+type PlanData = {id: Plan; name: string; price: PriceByFrecuency; icon: string};

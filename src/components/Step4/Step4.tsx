@@ -1,11 +1,13 @@
-import {useState} from 'react';
+import {useGetSummary} from '../../utils/useGetSummary';
+import {useSummaryStore} from '../../store/useFormStore';
 import './Step4.scss';
 
 // Assets
 import Confirmed from '../../assets/confirmed.svg';
 
 export default function Step4() {
-	const [confirmed, setConfirmed] = useState<boolean>(true);
+	const {planName, planPrice, frecuencyName, frecuencyText, addOnsData, total} = useGetSummary();
+	const {confirmed} = useSummaryStore();
 
 	if (confirmed) {
 		return (
@@ -25,26 +27,28 @@ export default function Step4() {
 		<div className='step-4'>
 			<div className='step-4__summary'>
 				<div className='summary-plan'>
-					<p className='summary-plan__title'>
-						<span>Arcade (Monthly)</span>
+					<p className='summary-plan__name'>
+						<span>
+							{planName} ({frecuencyName})
+						</span>
 						<span>Change</span>
 					</p>
-					<p className='summary-plan__price'>$9/mo</p>
+					<p className='summary-plan__price'>{planPrice}</p>
 				</div>
-				<ul className='summary-add-ons'>
-					<li className='summary-add-on'>
-						<p className='summary-add-on__title'>Online service</p>
-						<p className='summary-add-on__price'>+$1/mo</p>
-					</li>
-					<li className='summary-add-on'>
-						<p className='summary-add-on__title'>Larger storage</p>
-						<p className='summary-add-on__price'>+$2/mo</p>
-					</li>
-				</ul>
+				{addOnsData.length > 0 && (
+					<ul className='summary-add-ons'>
+						{addOnsData.map(({name, price}) => (
+							<li key={`summary-add-on-${name}`} className='summary-add-on'>
+								<p className='summary-add-on__name'>{name}</p>
+								<p className='summary-add-on__price'>+{price}</p>
+							</li>
+						))}
+					</ul>
+				)}
 			</div>
 			<div className='step-4__total'>
-				<p>Total (per month)</p>
-				<p>+$12/mo</p>
+				<p>Total (per {frecuencyText})</p>
+				<p>+{total}</p>
 			</div>
 		</div>
 	);

@@ -1,20 +1,21 @@
-export const ADD_ONS: AddOnData[] = [
-	{
-		id: 'online-service',
-		title: 'Online service',
+export const ADD_ONS: {[key in AddOn]: Omit<AddOnData, 'id'>} = {
+	'online-service': {
+		name: 'Online service',
 		description: 'Access to multiplayer games',
 		price: {monthly: 1, yearly: 10},
 	},
-	{
-		id: 'larger-storage',
-		title: 'Larger storage',
+	'larger-storage': {
+		name: 'Larger storage',
 		description: 'Extra 1TB of cloud save',
 		price: {monthly: 2, yearly: 20},
 	},
-	{
-		id: 'customizable-profile',
-		title: 'Customizable Profile',
+	'customizable-profile': {
+		name: 'Customizable Profile',
 		description: 'Custom theme on your profile',
 		price: {monthly: 2, yearly: 20},
 	},
-];
+};
+
+export const ADD_ONS_LIST: AddOnData[] = Object.entries(ADD_ONS).map(
+	([id, data]) => ({id, ...data} as AddOnData)
+);

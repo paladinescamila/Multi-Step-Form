@@ -47,31 +47,4 @@ button {
 		margin: 12px 0 41px;
 		color: $cool-gray;
 	}
-
-	&__navigation {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-}
-
-.go-back {
-	color: $cool-gray;
-	font-weight: 500;
-
-	&:hover {
-		color: $marine-blue;
-	}
-}
-
-.next-step {
-	color: $white;
-	font-weight: 700;
-	background-color: $marine-blue;
-	border-radius: 10px;
-	padding: 14px 24px 16px 25px;
-
-	&:hover {
-		background-color: $purplish-blue;
-	}
 }

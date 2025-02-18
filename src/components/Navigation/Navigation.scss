@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.navigation {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.go-back {
+	color: $cool-gray;
+	font-weight: 500;
+
+	&:hover {
+		color: $marine-blue;
+	}
+}
+
+.next-step {
+	color: $white;
+	font-weight: 700;
+	background-color: $marine-blue;
+	border-radius: 10px;
+	padding: 14px 24px 16px 25px;
+	margin-left: auto;
+
+	&:hover {
+		background-color: $purplish-blue;
+	}
+}
