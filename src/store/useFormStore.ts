@@ -10,13 +10,13 @@ export const useAppSelector = useSelector.withTypes<RootState>();
  */
 export const useStepsStore = () => {
 	const step = useAppSelector((state) => state.form.step);
+	const dispatch = useAppDispatch();
 	const confirmed = useAppSelector((state) => state.form.confirmed);
 
-	const dispatch = useAppDispatch();
-	const goPrev = () => dispatch(formActions.goPrev());
+	const goBack = () => dispatch(formActions.goBack());
 	const goNext = () => dispatch(formActions.goNext());
 
-	return {step, confirmed, goPrev, goNext};
+	return {step, confirmed, goBack, goNext};
 };
 
 /**
@@ -27,12 +27,26 @@ export const useInfoStore = () => {
 	const email = useAppSelector((state) => state.form.email);
 	const phone = useAppSelector((state) => state.form.phone);
 
+	const nameError = useAppSelector((state) => state.form.nameError);
+	const emailError = useAppSelector((state) => state.form.emailError);
+	const phoneError = useAppSelector((state) => state.form.phoneError);
+
 	const dispatch = useAppDispatch();
 	const updateName = (name: FormState['name']) => dispatch(formActions.updateName(name));
 	const updateEmail = (email: FormState['email']) => dispatch(formActions.updateEmail(email));
 	const updatePhone = (phone: FormState['phone']) => dispatch(formActions.updatePhone(phone));
 
-	return {name, email, phone, updateName, updateEmail, updatePhone};
+	return {
+		name,
+		email,
+		phone,
+		nameError,
+		emailError,
+		phoneError,
+		updateName,
+		updateEmail,
+		updatePhone,
+	};
 };
 
 /**
@@ -73,5 +87,8 @@ export const useSummaryStore = () => {
 	const addOns = useAppSelector((state) => state.form.addOns);
 	const confirmed = useAppSelector((state) => state.form.confirmed);
 
-	return {plan, frecuency, addOns, confirmed};
+	const dispatch = useAppDispatch();
+	const goBackToPlan = () => dispatch(formActions.goBackToPlan());
+
+	return {plan, frecuency, addOns, confirmed, goBackToPlan};
 };

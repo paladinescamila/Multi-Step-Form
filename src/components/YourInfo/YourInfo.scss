@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .your-info {
 	display: flex;
@@ -9,6 +10,14 @@
 		color: $marine-blue;
 		width: 100%;
 		margin-bottom: 8px;
+		display: flex;
+
+		.required {
+			font-size: 14px;
+			font-weight: 500;
+			color: $strawberry-red;
+			margin-left: auto;
+		}
 	}
 
 	&__input {
@@ -20,6 +29,7 @@
 		border: 1px solid $light-gray;
 		width: 100%;
 		margin-bottom: 24px;
+		@include transition(border-color);
 
 		&::placeholder {
 			color: $cool-gray;
@@ -27,6 +37,14 @@
 
 		&:focus {
 			border-color: $purplish-blue;
+		}
+
+		&--empty {
+			border-color: $strawberry-red;
+
+			&:focus {
+				border-color: $strawberry-red;
+			}
 		}
 	}
 }

@@ -8,6 +8,15 @@
 	outline: none;
 }
 
+html {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $magnolia;
+}
+
 li {
 	list-style: none;
 }
@@ -31,6 +40,7 @@ button {
 	display: grid;
 	grid-template-columns: 274px 1fr;
 	grid-gap: 100px;
+	box-shadow: 5px 3px 50px 1px rgb(0 0 0 / 0.1);
 }
 
 .content {

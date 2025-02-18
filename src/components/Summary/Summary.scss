@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .summary {
 	display: flex;
@@ -55,6 +56,8 @@
 			text-decoration: underline;
 			cursor: pointer;
 			color: $cool-gray;
+			width: max-content;
+			@include transition(color);
 
 			&:hover {
 				color: $purplish-blue;

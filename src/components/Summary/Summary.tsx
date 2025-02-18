@@ -7,8 +7,7 @@ import './Summary.scss';
 import Confirmed from '../../assets/confirmed.svg';
 
 export default function Summary() {
-	// const {planName, planPrice, frecuencyName, frecuencyText, addOnsData, total} = useGetSummary();
-	const {plan, frecuency, addOns, confirmed} = useSummaryStore();
+	const {plan, frecuency, addOns, confirmed, goBackToPlan} = useSummaryStore();
 
 	const summary = useMemo(() => getSummary(plan, frecuency, addOns), [plan, frecuency, addOns]);
 
@@ -32,7 +31,7 @@ export default function Summary() {
 				<div className='summary-plan'>
 					<p className='summary-plan__name'>
 						<span>{summary.plan}</span>
-						<span>Change</span>
+						<span onClick={goBackToPlan}>Change</span>
 					</p>
 					<p className='summary-plan__price'>{summary.price}</p>
 				</div>

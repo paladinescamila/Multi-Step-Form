@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .navigation {
 	display: flex;
@@ -10,6 +11,7 @@
 .go-back {
 	color: $cool-gray;
 	font-weight: 500;
+	@include transition(color);
 
 	&:hover {
 		color: $marine-blue;
@@ -23,6 +25,7 @@
 	border-radius: 10px;
 	padding: 14px 24px 16px 25px;
 	margin-left: auto;
+	@include transition(background-color);
 
 	&:hover {
 		background-color: $purplish-blue;

@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .select-plan {
 	display: flex;
@@ -25,10 +26,12 @@
 
 		.frecuency-monthly {
 			justify-self: right;
+			@include transition(color);
 		}
 
 		.frecuency-yearly {
 			justify-self: left;
+			@include transition(color);
 		}
 
 		&--monthly .frecuency-monthly {
@@ -57,7 +60,7 @@
 				height: 12px;
 				background-color: $white;
 				border-radius: 50px;
-				transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+				@include transition(left);
 			}
 		}
 
@@ -83,6 +86,7 @@
 	border: 1px solid $light-gray;
 	min-height: 160px;
 	cursor: pointer;
+	@include transition(border-color, background-color);
 
 	&:hover {
 		border-color: $purplish-blue;

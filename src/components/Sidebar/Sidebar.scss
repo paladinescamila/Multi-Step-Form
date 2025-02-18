@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .sidebar {
 	padding: 40px 32px;
@@ -37,6 +38,7 @@
 		align-items: center;
 		border: 1px solid $white;
 		color: $white;
+		@include transition(border-color, background-color, color);
 	}
 
 	&--active &__number {
