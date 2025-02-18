@@ -4,10 +4,10 @@ import './styles/index.scss';
 
 // Components
 import Sidebar from './components/Sidebar/Sidebar';
-import Step1 from './components/Step1/Step1';
-import Step2 from './components/Step2/Step2';
-import Step3 from './components/Step3/Step3';
-import Step4 from './components/Step4/Step4';
+import YourInfo from './components/YourInfo/YourInfo';
+import SelectPlan from './components/SelectPlan/SelectPlan';
+import AddOns from './components/AddOns/AddOns';
+import Summary from './components/Summary/Summary';
 import Navigation from './components/Navigation/Navigation';
 
 function App() {
@@ -23,10 +23,10 @@ function App() {
 						<p className='content__description'>{STEPS[step].description}</p>
 					</>
 				)}
-				{step == 'your-info' && <Step1 />}
-				{step == 'select-plan' && <Step2 />}
-				{step == 'add-ons' && <Step3 />}
-				{step == 'summary' && <Step4 />}
+				{step == 'your-info' && <YourInfo />}
+				{step == 'select-plan' && <SelectPlan />}
+				{step == 'add-ons' && <AddOns />}
+				{step == 'summary' && <Summary />}
 				{!confirmed && <Navigation />}
 			</section>
 		</main>

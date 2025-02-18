@@ -1,12 +1,12 @@
 import {useInfoStore} from '../../store/useFormStore';
-import './Step1.scss';
+import './YourInfo.scss';
 
-export default function Step1() {
+export default function YourInfo() {
 	const {name, email, phone, updateName, updateEmail, updatePhone} = useInfoStore();
 
 	return (
-		<form className='step-1'>
-			<label htmlFor='name' className='step-1__label'>
+		<form className='your-info'>
+			<label htmlFor='name' className='your-info__label'>
 				Name
 			</label>
 			<input
@@ -14,10 +14,10 @@ export default function Step1() {
 				id='name'
 				value={name}
 				onChange={(e) => updateName(e.target.value)}
-				className='step-1__input'
+				className='your-info__input'
 				placeholder='e.g. Stephen King'
 			/>
-			<label htmlFor='email' className='step-1__label'>
+			<label htmlFor='email' className='your-info__label'>
 				Email Address
 			</label>
 			<input
@@ -25,10 +25,10 @@ export default function Step1() {
 				id='email'
 				value={email}
 				onChange={(e) => updateEmail(e.target.value)}
-				className='step-1__input'
+				className='your-info__input'
 				placeholder='e.g. stephenking@lorem.com'
 			/>
-			<label htmlFor='phone' className='step-1__label'>
+			<label htmlFor='phone' className='your-info__label'>
 				Phone Number
 			</label>
 			<input
@@ -36,7 +36,7 @@ export default function Step1() {
 				id='phone'
 				value={phone}
 				onChange={(e) => updatePhone(e.target.value)}
-				className='step-1__input'
+				className='your-info__input'
 				placeholder='e.g. +1 234 567 890'
 			/>
 		</form>

@@ -8,7 +8,7 @@ export type FormState = {
 	phone: string;
 	plan: Plan;
 	frecuency: Frecuency;
-	addOns: {[key in AddOn]: boolean};
+	addOns: AddOns;
 	confirmed: boolean;
 };
 

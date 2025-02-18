@@ -1,13 +1,16 @@
-import {useGetSummary} from '../../utils/useGetSummary';
+import {useMemo} from 'react';
+import {getSummary} from '../../utils/getSummary';
 import {useSummaryStore} from '../../store/useFormStore';
-import './Step4.scss';
+import './Summary.scss';
 
 // Assets
 import Confirmed from '../../assets/confirmed.svg';
 
-export default function Step4() {
-	const {planName, planPrice, frecuencyName, frecuencyText, addOnsData, total} = useGetSummary();
-	const {confirmed} = useSummaryStore();
+export default function Summary() {
+	// const {planName, planPrice, frecuencyName, frecuencyText, addOnsData, total} = useGetSummary();
+	const {plan, frecuency, addOns, confirmed} = useSummaryStore();
+
+	const summary = useMemo(() => getSummary(plan, frecuency, addOns), [plan, frecuency, addOns]);
 
 	if (confirmed) {
 		return (
@@ -24,20 +27,18 @@ export default function Step4() {
 	}
 
 	return (
-		<div className='step-4'>
-			<div className='step-4__summary'>
+		<div className='summary'>
+			<div className='summary__details'>
 				<div className='summary-plan'>
 					<p className='summary-plan__name'>
-						<span>
-							{planName} ({frecuencyName})
-						</span>
+						<span>{summary.plan}</span>
 						<span>Change</span>
 					</p>
-					<p className='summary-plan__price'>{planPrice}</p>
+					<p className='summary-plan__price'>{summary.price}</p>
 				</div>
-				{addOnsData.length > 0 && (
+				{summary.addOns.length > 0 && (
 					<ul className='summary-add-ons'>
-						{addOnsData.map(({name, price}) => (
+						{summary.addOns.map(({name, price}) => (
 							<li key={`summary-add-on-${name}`} className='summary-add-on'>
 								<p className='summary-add-on__name'>{name}</p>
 								<p className='summary-add-on__price'>+{price}</p>
@@ -46,9 +47,9 @@ export default function Step4() {
 					</ul>
 				)}
 			</div>
-			<div className='step-4__total'>
-				<p>Total (per {frecuencyText})</p>
-				<p>+{total}</p>
+			<div className='summary__total'>
+				<p>{summary.total.name}</p>
+				<p>+{summary.total.price}</p>
 			</div>
 		</div>
 	);

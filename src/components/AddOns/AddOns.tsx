@@ -1,15 +1,15 @@
 import {ADD_ONS_LIST} from '../../constants/add-ons';
 import {useAddOnsStore} from '../../store/useFormStore';
-import './Step3.scss';
+import './AddOns.scss';
 
 // Assets
 import Checkmark from '../../assets/checkmark.svg';
 
-export default function Step3() {
+export default function AddOns() {
 	const {frecuency, addOns, updateAddOn} = useAddOnsStore();
 
 	return (
-		<form className='step-3'>
+		<form className='add-ons'>
 			{ADD_ONS_LIST.map(({id, name, description, price}) => (
 				<label
 					htmlFor={id}

@@ -1,11 +1,11 @@
 @import '../../styles/variables.scss';
 
-.step-4 {
+.summary {
 	display: flex;
 	flex-direction: column;
 	row-gap: 30px;
 
-	&__summary {
+	&__details {
 		display: flex;
 		flex-direction: column;
 		padding: 20px;

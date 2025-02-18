@@ -1,13 +1,13 @@
 import {PLANS_LIST} from '../../constants/plans';
 import {usePlanStore} from '../../store/useFormStore';
-import './Step2.scss';
+import './SelectPlan.scss';
 
-export default function Step2() {
+export default function SelectPlan() {
 	const {plan, frecuency, updatePlan, updateFrecuency} = usePlanStore();
 
 	return (
-		<div className='step-2'>
-			<ul className='step-2__plans'>
+		<div className='select-plan'>
+			<ul className='select-plan__plans'>
 				{PLANS_LIST.map(({id, name, price, icon}) => (
 					<li
 						key={name}
@@ -23,7 +23,7 @@ export default function Step2() {
 				))}
 			</ul>
 			<button
-				className={`step-2__frecuency step-2__frecuency--${frecuency}`}
+				className={`select-plan__frecuency select-plan__frecuency--${frecuency}`}
 				onClick={() => updateFrecuency(frecuency === 'monthly' ? 'yearly' : 'monthly')}>
 				<p className='frecuency-monthly'>Monthly</p>
 				<div className='switch' />
