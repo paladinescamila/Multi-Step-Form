@@ -35,8 +35,15 @@ export const validateEmail = (email: string) =>
 /**
  * Validates the format of a phone number.
  * Allows spaces and the "+" sign.
+ * Requires at least 5 digits.
  * @param phone - The phone number to validate.
- * @returns An error message if the field is empty or the format is invalid, otherwise an empty string.
+ * @returns An error message if the field is empty, too short, or the format is invalid, otherwise an empty string.
  */
-export const validatePhone = (phone: string) =>
-	phone.trim() === '' ? EMPTY_ERROR : !/^\+?\d[\d\s]*$/.test(phone) ? PHONE_ERROR : '';
+export const validatePhone = (phone: string) => {
+	const trimmedPhone = phone.trim();
+
+	if (trimmedPhone === '') return EMPTY_ERROR;
+	if (!/^\+?\d[\d\s]*\d{4,}$/.test(trimmedPhone)) return PHONE_ERROR; // Mínimo 5 dígitos
+
+	return '';
+};
