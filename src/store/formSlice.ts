@@ -47,6 +47,7 @@ export const formSlice = createSlice({
 			else if (state.step === 'add-ons') state.step = 'select-plan';
 			else if (state.step === 'select-plan') state.step = 'your-info';
 		},
+
 		goNext: (state) => {
 			if (state.step === 'your-info') {
 				state.nameError = validateName(state.name);
@@ -60,27 +61,34 @@ export const formSlice = createSlice({
 			else if (state.step === 'add-ons') state.step = 'summary';
 			else if (state.step === 'summary') state.confirmed = true;
 		},
+
 		goBackToPlan: (state) => {
 			state.step = 'select-plan';
 		},
+
 		updateName: (state, action: PayloadAction<FormState['name']>) => {
 			state.name = action.payload;
 			state.nameError = validateName(action.payload);
 		},
+
 		updateEmail: (state, action: PayloadAction<FormState['email']>) => {
 			state.email = action.payload;
 			state.emailError = validateEmail(action.payload);
 		},
+
 		updatePhone: (state, action: PayloadAction<FormState['phone']>) => {
 			state.phone = action.payload;
 			state.phoneError = validatePhone(action.payload);
 		},
+
 		updatePlan: (state, action: PayloadAction<FormState['plan']>) => {
 			state.plan = action.payload;
 		},
+
 		updateFrecuency: (state, action: PayloadAction<FormState['frecuency']>) => {
 			state.frecuency = action.payload;
 		},
+
 		updateAddOne: (state, action: PayloadAction<AddOn>) => {
 			state.addOns[action.payload] = !state.addOns[action.payload];
 		},

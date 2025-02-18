@@ -10,9 +10,9 @@ export const useAppSelector = useSelector.withTypes<RootState>();
  */
 export const useStepsStore = () => {
 	const step = useAppSelector((state) => state.form.step);
-	const dispatch = useAppDispatch();
 	const confirmed = useAppSelector((state) => state.form.confirmed);
 
+	const dispatch = useAppDispatch();
 	const goBack = () => dispatch(formActions.goBack());
 	const goNext = () => dispatch(formActions.goNext());
 
@@ -26,7 +26,6 @@ export const useInfoStore = () => {
 	const name = useAppSelector((state) => state.form.name);
 	const email = useAppSelector((state) => state.form.email);
 	const phone = useAppSelector((state) => state.form.phone);
-
 	const nameError = useAppSelector((state) => state.form.nameError);
 	const emailError = useAppSelector((state) => state.form.emailError);
 	const phoneError = useAppSelector((state) => state.form.phoneError);
