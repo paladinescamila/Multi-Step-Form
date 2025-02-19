@@ -8,7 +8,7 @@
 	background-color: $white;
 
 	@include mobile {
-		position: absolute;
+		position: fixed;
 		left: 0;
 		right: 0;
 		bottom: 0;
